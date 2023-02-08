@@ -160,7 +160,8 @@
     "test": "node ./out/src/test/runTest.js",
     "lint": "eslint src --ext .ts",
     "preui-test": "rimraf test-extensions/*",
-    "ui-test": "extest setup-and-run --storage uitest-resources --code_settings ./src/ui-test/resources/vscode-settings.json --extensions_dir ./test-extensions './out/src/ui-test/*_test.js' -u"
+    "ui-test": "npm run compile && node --unhandled-rejections=warn-with-error-code out/src/ui-test/uitest_runner.js",
+    "ui-test-insiders": "npm run compile && node --unhandled-rejections=warn-with-error-code out/src/ui-test/uitest_runner.js -t insider"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
